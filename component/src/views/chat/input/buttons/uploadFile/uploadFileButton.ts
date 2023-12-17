@@ -27,6 +27,9 @@ export class UploadFileButton extends InputButton<Styles> {
     this._fileAttachmentsType = fileAttachmentsType;
     this._openModalOnce = fileService.files?.infoModal?.openModalOnce === false
     ? undefined : fileService.files?.infoModal?.openModalOnce;
+    
+    // Show input element in the dom tree
+    containerElement.appendChild(this._inputElement);
   }
 
   private createInnerElements(iconId: string, iconSVGString: string, customStyles?: Styles) {
