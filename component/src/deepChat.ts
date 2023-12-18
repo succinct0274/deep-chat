@@ -34,10 +34,15 @@ import {Avatars} from './types/avatars';
 import {Stream} from './types/stream';
 import {Names} from './types/names';
 import {Demo} from './types/demo';
+import { AttachmentObject } from './views/chat/input/fileAttachments/fileAttachmentTypes/fileAttachmentsType';
 
 // TO-DO - ability to export files
 // TO-DO - perhaps chat bubbles should start at the bottom which would allow nice slide up animation (optional)
 export class DeepChat extends InternalHTML {
+
+  @Property('function')
+  onAttachmentChange?: (attachemnts: AttachmentObject[], newFile: File) => void;
+
   @Property('object')
   directConnection?: DirectConnection;
 

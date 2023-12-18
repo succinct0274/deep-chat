@@ -18,6 +18,7 @@ export class FileAttachmentsType {
   private readonly _toggleContainerDisplay: (display: boolean) => void;
   private readonly _fileAttachmentsContainerRef: HTMLElement;
   private readonly _acceptedFormat: string = '';
+  private _attachmentChangeCallback?: Function;
   private _validationHandler?: ValidationHandler;
 
   // prettier-ignore
@@ -26,6 +27,7 @@ export class FileAttachmentsType {
     if (fileAttachments.maxNumberOfFiles) this._fileCountLimit = fileAttachments.maxNumberOfFiles;
     this._toggleContainerDisplay = toggleContainer;
     this._fileAttachmentsContainerRef = container;
+    this._attachmentChangeCallback = deepChat.onAttachmentChange;
     if (fileAttachments.acceptedFormats) this._acceptedFormat = fileAttachments.acceptedFormats;
      // in a timeout as deepChat._validationHandler initialised later
     setTimeout(() => {this._validationHandler = deepChat._validationHandler;});
@@ -34,6 +36,7 @@ export class FileAttachmentsType {
   attemptAddFile(file: File, fileReaderResult: string) {
     if (FileAttachmentsType.isFileTypeValid(file, this._acceptedFormat)) {
       this.addAttachmentBasedOnType(file, fileReaderResult, true);
+      this._attachmentChangeCallback?.call(undefined, this._attachments, file);
       return true;
     }
     return false;

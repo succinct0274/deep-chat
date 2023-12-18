@@ -38,6 +38,10 @@
           text: 'You are now running deep chat locally.',
         })
       );
+      chatElement.onAttachmentChange = (files, newFile) => {
+        console.log(files);
+        console.log(newFile);
+      }
     </script>
   </body>
 </html>
