@@ -363,7 +363,7 @@ const ei = class xe {
 ei.AI_ROLE = "ai";
 ei.USER_ROLE = "user";
 ei.EMPTY_MESSAGE_CLASS = "empty-message";
-let v = ei;
+let x = ei;
 class Te {
   static mouseUp(e, t) {
     T.unsetAllCSSMouseStates(e, t), Object.assign(e.style, t.default), Object.assign(e.style, t.hover);
@@ -485,7 +485,7 @@ class Ye {
     return n.bubbleElement.classList.add("html-message"), n.bubbleElement.innerHTML = t, n;
   }
   static overwrite(e, t, i, n) {
-    const { messages: r } = e, o = v.overwriteMessage(r, n, t, i, "html", "html-message");
+    const { messages: r } = e, o = x.overwriteMessage(r, n, t, i, "html", "html-message");
     return o && (o.bubbleElement.innerHTML = t, se.apply(e, o.outerContainer), ke.flagHTMLUpdateClass(o.bubbleElement)), o;
   }
   // prettier-ignore
@@ -498,7 +498,7 @@ class Ye {
       r.status = !1;
     }
     const o = Ye.createElements(e, t, i);
-    return v.fillEmptyMessageElement(o.bubbleElement, t), se.apply(e, o.outerContainer), ke.flagHTMLUpdateClass(o.bubbleElement), e.applyCustomStyles(o, i, !1, (a = e.messageStyles) == null ? void 0 : a.html), Ye.addElement(e, o.outerContainer), o;
+    return x.fillEmptyMessageElement(o.bubbleElement, t), se.apply(e, o.outerContainer), ke.flagHTMLUpdateClass(o.bubbleElement), e.applyCustomStyles(o, i, !1, (a = e.messageStyles) == null ? void 0 : a.html), Ye.addElement(e, o.outerContainer), o;
   }
 }
 var kt;
@@ -2657,7 +2657,7 @@ class D {
     }
   }
   static applySideStyles(e, t, i, n) {
-    n && (D.applyCustomStylesToElements(e, i, n.shared), t === v.USER_ROLE ? D.applyCustomStylesToElements(e, i, n.user) : (D.applyCustomStylesToElements(e, i, n.ai), D.applyCustomStylesToElements(e, i, n[t])));
+    n && (D.applyCustomStylesToElements(e, i, n.shared), t === x.USER_ROLE ? D.applyCustomStylesToElements(e, i, n.user) : (D.applyCustomStylesToElements(e, i, n.ai), D.applyCustomStylesToElements(e, i, n[t])));
   }
   static isMessageSideStyles(e) {
     return !!(e.ai || e.shared || e.user);
@@ -2690,7 +2690,7 @@ class ce {
   }
   static applyCustomStyles(e, t, i, n) {
     var r, o, a, l;
-    if ((r = i.default) != null && r.styles && ce.applyCustomStylesToElements(e, t, i.default.styles), n === v.USER_ROLE)
+    if ((r = i.default) != null && r.styles && ce.applyCustomStylesToElements(e, t, i.default.styles), n === x.USER_ROLE)
       (o = i.user) != null && o.styles && ce.applyCustomStylesToElements(e, t, i.user.styles);
     else {
       (a = i.ai) != null && a.styles && ce.applyCustomStylesToElements(e, t, i.ai.styles);
@@ -2701,14 +2701,14 @@ class ce {
   static createAvatar(e, t) {
     var r, o, a, l, c;
     const i = document.createElement("img");
-    e === v.USER_ROLE ? i.src = ((r = t == null ? void 0 : t.user) == null ? void 0 : r.src) || ((o = t == null ? void 0 : t.default) == null ? void 0 : o.src) || ro : i.src = ((a = t == null ? void 0 : t[e]) == null ? void 0 : a.src) || ((l = t == null ? void 0 : t.ai) == null ? void 0 : l.src) || ((c = t == null ? void 0 : t.default) == null ? void 0 : c.src) || so, i.classList.add("avatar");
+    e === x.USER_ROLE ? i.src = ((r = t == null ? void 0 : t.user) == null ? void 0 : r.src) || ((o = t == null ? void 0 : t.default) == null ? void 0 : o.src) || ro : i.src = ((a = t == null ? void 0 : t[e]) == null ? void 0 : a.src) || ((l = t == null ? void 0 : t.ai) == null ? void 0 : l.src) || ((c = t == null ? void 0 : t.default) == null ? void 0 : c.src) || so, i.classList.add("avatar");
     const n = document.createElement("div");
     return n.classList.add("avatar-container"), n.appendChild(i), t && ce.applyCustomStyles(n, i, t, e), n;
   }
   static getPosition(e, t) {
     var n, r, o, a, l, c;
     let i = (r = (n = t == null ? void 0 : t[e]) == null ? void 0 : n.styles) == null ? void 0 : r.position;
-    return e !== v.USER_ROLE && (i ?? (i = (a = (o = t == null ? void 0 : t.ai) == null ? void 0 : o.styles) == null ? void 0 : a.position)), i ?? (i = (c = (l = t == null ? void 0 : t.default) == null ? void 0 : l.styles) == null ? void 0 : c.position), i ?? (i = e === v.USER_ROLE ? "right" : "left"), i;
+    return e !== x.USER_ROLE && (i ?? (i = (a = (o = t == null ? void 0 : t.ai) == null ? void 0 : o.styles) == null ? void 0 : a.position)), i ?? (i = (c = (l = t == null ? void 0 : t.default) == null ? void 0 : l.styles) == null ? void 0 : c.position), i ?? (i = e === x.USER_ROLE ? "right" : "left"), i;
   }
   static add(e, t, i) {
     const n = typeof i == "boolean" ? void 0 : i, r = ce.createAvatar(t, n), o = ce.getPosition(t, n);
@@ -2719,15 +2719,15 @@ class Ge {
   static getPosition(e, t) {
     var n, r, o;
     let i = (n = t == null ? void 0 : t[e]) == null ? void 0 : n.position;
-    return e !== v.USER_ROLE && (i ?? (i = (r = t == null ? void 0 : t.ai) == null ? void 0 : r.position)), i ?? (i = (o = t == null ? void 0 : t.default) == null ? void 0 : o.position), i ?? (i = e === v.USER_ROLE ? "right" : "left"), i;
+    return e !== x.USER_ROLE && (i ?? (i = (r = t == null ? void 0 : t.ai) == null ? void 0 : r.position)), i ?? (i = (o = t == null ? void 0 : t.default) == null ? void 0 : o.position), i ?? (i = e === x.USER_ROLE ? "right" : "left"), i;
   }
   static applyStyle(e, t, i) {
     var n, r, o, a;
-    Object.assign(e.style, (n = i.default) == null ? void 0 : n.style), t === v.USER_ROLE ? Object.assign(e.style, (r = i.user) == null ? void 0 : r.style) : (Object.assign(e.style, (o = i.ai) == null ? void 0 : o.style), Object.assign(e.style, (a = i[t]) == null ? void 0 : a.style));
+    Object.assign(e.style, (n = i.default) == null ? void 0 : n.style), t === x.USER_ROLE ? Object.assign(e.style, (r = i.user) == null ? void 0 : r.style) : (Object.assign(e.style, (o = i.ai) == null ? void 0 : o.style), Object.assign(e.style, (a = i[t]) == null ? void 0 : a.style));
   }
   static getNameText(e, t) {
     var i, n, r, o, a, l;
-    return e === v.USER_ROLE ? ((i = t.user) == null ? void 0 : i.text) || ((n = t.default) == null ? void 0 : n.text) || "User" : e === v.AI_ROLE ? ((r = t.ai) == null ? void 0 : r.text) || ((o = t.default) == null ? void 0 : o.text) || "AI" : ((a = t[e]) == null ? void 0 : a.text) || ((l = t.default) == null ? void 0 : l.text) || e;
+    return e === x.USER_ROLE ? ((i = t.user) == null ? void 0 : i.text) || ((n = t.default) == null ? void 0 : n.text) || "User" : e === x.AI_ROLE ? ((r = t.ai) == null ? void 0 : r.text) || ((o = t.default) == null ? void 0 : o.text) || "AI" : ((a = t[e]) == null ? void 0 : a.text) || ((l = t.default) == null ? void 0 : l.text) || e;
   }
   static createName(e, t) {
     const i = document.createElement("div");
@@ -2756,13 +2756,13 @@ class Ke {
       i.status = !1;
     }
     const n = this.createAndAppendNewMessageElement(e, t);
-    return n.bubbleElement.classList.add("text-message"), this.applyCustomStyles(n, t, !1), v.fillEmptyMessageElement(n.bubbleElement, e), this.textElementsToText.push([n, e]), n;
+    return n.bubbleElement.classList.add("text-message"), this.applyCustomStyles(n, t, !1), x.fillEmptyMessageElement(n.bubbleElement, e), this.textElementsToText.push([n, e]), n;
   }
   overwriteText(e, t, i) {
-    const n = v.overwriteMessage(this.messages, i, t, e, "text", "text-message");
+    const n = x.overwriteMessage(this.messages, i, t, e, "text", "text-message");
     if (n) {
       this.renderText(n.bubbleElement, t);
-      const r = v.getLastTextToElement(this.textElementsToText, n);
+      const r = x.getLastTextToElement(this.textElementsToText, n);
       r && (r[1] = t);
     }
     return n;
@@ -2794,8 +2794,8 @@ class Ke {
   addInnerContainerElements(e, t, i) {
     return e.classList.add(
       "message-bubble",
-      v.getRoleClass(i),
-      i === v.USER_ROLE ? "user-message-text" : "ai-message-text"
+      x.getRoleClass(i),
+      i === x.USER_ROLE ? "user-message-text" : "ai-message-text"
     ), this.renderText(e, t), this._avatars && ce.add(e, i, this._avatars), this._names && Ge.add(e, i, this._names), { bubbleElement: e };
   }
   // prettier-ignore
@@ -2803,7 +2803,7 @@ class Ke {
     e && this.messageStyles && D.applyCustomStyles(this.messageStyles, e, t, i, n);
   }
   static createMessageContent(e) {
-    const { text: t, files: i, html: n, _sessionId: r, role: o } = e, a = { role: o || v.AI_ROLE };
+    const { text: t, files: i, html: n, _sessionId: r, role: o } = e, a = { role: o || x.AI_ROLE };
     return t && (a.text = t), i && (a.files = i), n && (a.html = n), !t && !i && !n && (a.text = ""), r && (a._sessionId = r), a;
   }
   removeLastMessage() {
@@ -2845,10 +2845,10 @@ const Wi = class st {
     i && Y.scrollToBottom(this._messages.elementRef);
   }
   setInitialState(e, t, i) {
-    this._streamType = e, i ?? (i = v.AI_ROLE), this._elements = e === "text" ? this._messages.addNewTextMessage(t, i) : Ye.add(this._messages, t, i, this._messages.messageElementRefs), this._elements.bubbleElement.classList.add(st.MESSAGE_CLASS), this._streamedContent = t, this._activeMessageRole = i;
+    this._streamType = e, i ?? (i = x.AI_ROLE), this._elements = e === "text" ? this._messages.addNewTextMessage(t, i) : Ye.add(this._messages, t, i, this._messages.messageElementRefs), this._elements.bubbleElement.classList.add(st.MESSAGE_CLASS), this._streamedContent = t, this._activeMessageRole = i;
   }
   updateBasedOnType(e, t, i, n = !1) {
-    v.unfillEmptyMessageElement(i, e), (t === "text" ? this.updateText : this.updateHTML).bind(this)(e, i, n);
+    x.unfillEmptyMessageElement(i, e), (t === "text" ? this.updateText : this.updateHTML).bind(this)(e, i, n);
   }
   updateText(e, t, i) {
     this._streamedContent = i ? e : this._streamedContent + e, this._messages.textElementsToText[this._messages.textElementsToText.length - 1][1] = this._streamedContent, this._messages.renderText(t, this._streamedContent);
@@ -2863,13 +2863,13 @@ const Wi = class st {
   }
   finaliseStreamedMessage() {
     var r, o;
-    const { textElementsToText: e, elementRef: t } = this._messages, i = (r = v.getLastMessageBubbleElement(t)) == null ? void 0 : r.classList;
+    const { textElementsToText: e, elementRef: t } = this._messages, i = (r = x.getLastMessageBubbleElement(t)) == null ? void 0 : r.classList;
     if (i != null && i.contains("loading-message-text"))
       throw Error(A.NO_VALID_STREAM_EVENTS_SENT);
     if (!(i != null && i.contains(st.MESSAGE_CLASS)))
       return;
-    const n = { role: this._activeMessageRole || v.AI_ROLE };
-    this._streamType === "text" ? (e[e.length - 1][1] = this._streamedContent, n.text = this._streamedContent, this._messages.textToSpeech && Nt.speak(this._streamedContent, this._messages.textToSpeech)) : this._streamType === "html" && (this._streamedContent === st.HTML_CONTENT_PLACEHOLDER && (this._streamedContent = ((o = v.getLastMessageBubbleElement(t)) == null ? void 0 : o.innerHTML) || ""), this._elements && se.apply(this._messages, this._elements.outerContainer), n.html = this._streamedContent), n && (this._messages.messages.push(n), this._messages.sendClientUpdate(Ke.createMessageContent(n), !1)), this._hasStreamEnded = !0;
+    const n = { role: this._activeMessageRole || x.AI_ROLE };
+    this._streamType === "text" ? (e[e.length - 1][1] = this._streamedContent, n.text = this._streamedContent, this._messages.textToSpeech && Nt.speak(this._streamedContent, this._messages.textToSpeech)) : this._streamType === "html" && (this._streamedContent === st.HTML_CONTENT_PLACEHOLDER && (this._streamedContent = ((o = x.getLastMessageBubbleElement(t)) == null ? void 0 : o.innerHTML) || ""), this._elements && se.apply(this._messages, this._elements.outerContainer), n.html = this._streamedContent), n && (this._messages.messages.push(n), this._messages.sendClientUpdate(Ke.createMessageContent(n), !1)), this._hasStreamEnded = !0;
   }
 };
 Wi.MESSAGE_CLASS = "streamed-message";
@@ -4942,7 +4942,7 @@ class dt extends q {
       this.totalMessagesMaxCharLength ? this.totalMessagesMaxCharLength - this._systemMessage.content.length : -1
     ).map((r) => ({
       content: dt.getContent(r),
-      role: r.role === v.USER_ROLE ? "user" : "assistant"
+      role: r.role === x.USER_ROLE ? "user" : "assistant"
     }));
     return t.find((r) => r.files && r.files.length > 0) && (i.max_tokens ?? (i.max_tokens = 300)), i.messages = [this._systemMessage, ...n], i;
   }
@@ -5183,9 +5183,9 @@ const yn = {
   }
   static setUpHistory(e, t) {
     t.forEach((i, n) => {
-      if (i.role === v.USER_ROLE && i.text) {
+      if (i.role === x.USER_ROLE && i.text) {
         const r = t[n + 1];
-        r != null && r.text && r.role !== v.USER_ROLE && e.push([i.text, r.text]);
+        r != null && r.text && r.role !== x.USER_ROLE && e.push([i.text, r.text]);
       }
     });
   }
@@ -5210,7 +5210,7 @@ const yn = {
     if (!this.shouldAddInitialMessage(e) || !this._chatEl)
       return;
     const t = vn.setUpInitial(this.init.bind(this), this._webModel.introMessage, this._chatEl);
-    return this.scrollToTop(1), { role: v.AI_ROLE, html: t, sendUpdate: !1 };
+    return this.scrollToTop(1), { role: x.AI_ROLE, html: t, sendUpdate: !1 };
   }
   async configureInit(e) {
     const { load: t } = this._webModel;
@@ -5395,7 +5395,7 @@ us.attibutes = {
   array: (s) => JSON.parse(s),
   function: (s) => new Function(`return ${s}`)()
 };
-function y(s) {
+function v(s) {
   return function(e, t) {
     Object.defineProperty(e, t, {});
     const i = e.constructor, n = t.toLocaleLowerCase();
@@ -5518,7 +5518,7 @@ class fe {
   static createAudioElement(e, t) {
     const i = document.createElement("audio");
     return i.src = e.src, i.classList.add("audio-player"), i.controls = !0, ge.IS_SAFARI && (i.classList.add("audio-player-safari"), i.classList.add(
-      t === v.USER_ROLE ? "audio-player-safari-right" : "audio-player-safari-left"
+      t === x.USER_ROLE ? "audio-player-safari-right" : "audio-player-safari-left"
     )), i;
   }
   static addNewAudioMessage(e, t, i) {
@@ -5565,8 +5565,8 @@ class me extends Ke {
   addSetupMessageIfNeeded(e, t) {
     const i = Uo.getText(e, t);
     if (i) {
-      const n = this.createAndAppendNewMessageElement(i, v.AI_ROLE);
-      this.applyCustomStyles(n, v.AI_ROLE, !1);
+      const n = this.createAndAppendNewMessageElement(i, x.AI_ROLE);
+      this.applyCustomStyles(n, x.AI_ROLE, !1);
     }
   }
   // WORK - const file for deep chat classes
@@ -5576,7 +5576,7 @@ class me extends Ke {
     let i = this._introMessage;
     if (t != null && t.isWebModel() && (i ?? (i = t.getIntroMessage(i))), i) {
       let r;
-      i != null && i.text ? r = this.createAndAppendNewMessageElement(i.text, v.AI_ROLE) : i != null && i.html && (r = Ye.add(this, i.html, v.AI_ROLE, this.messageElementRefs)), r && (this.applyCustomStyles(r, v.AI_ROLE, !1, (n = this.messageStyles) == null ? void 0 : n.intro), r.outerContainer.classList.add("deep-chat-intro"));
+      i != null && i.text ? r = this.createAndAppendNewMessageElement(i.text, x.AI_ROLE) : i != null && i.html && (r = Ye.add(this, i.html, x.AI_ROLE, this.messageElementRefs)), r && (this.applyCustomStyles(r, x.AI_ROLE, !1, (n = this.messageStyles) == null ? void 0 : n.intro), r.outerContainer.classList.add("deep-chat-intro"));
     }
   }
   removeIntroductoryMessage() {
@@ -5591,7 +5591,7 @@ class me extends Ke {
   // this should not be activated by streamed messages
   addNewMessage(e, t = !1) {
     const i = me.createMessageContent(e), n = { status: e.overwrite };
-    if (!e.ignoreText && i.text !== void 0 && e.text !== null && (this.addNewTextMessage(i.text, i.role, n), !t && this.textToSpeech && i.role !== v.USER_ROLE && Nt.speak(i.text, this.textToSpeech)), i.files && Array.isArray(i.files) && fe.addMessages(this, i.files, i.role), i.html !== void 0 && i.html !== null) {
+    if (!e.ignoreText && i.text !== void 0 && e.text !== null && (this.addNewTextMessage(i.text, i.role, n), !t && this.textToSpeech && i.role !== x.USER_ROLE && Nt.speak(i.text, this.textToSpeech)), i.files && Array.isArray(i.files) && fe.addMessages(this, i.files, i.role), i.html !== void 0 && i.html !== null) {
       const r = Ye.add(this, i.html, i.role, this.messageElementRefs, n);
       be.isElementTemporary(r) && delete i.html;
     }
@@ -5642,19 +5642,19 @@ class me extends Ke {
   }
   isLastMessageError() {
     var e;
-    return (e = v.getLastMessageBubbleElement(this.elementRef)) == null ? void 0 : e.classList.contains("error-message-text");
+    return (e = x.getLastMessageBubbleElement(this.elementRef)) == null ? void 0 : e.classList.contains("error-message-text");
   }
   removeError() {
-    this.isLastMessageError() && v.getLastMessageElement(this.elementRef).remove();
+    this.isLastMessageError() && x.getLastMessageElement(this.elementRef).remove();
   }
   addLoadingMessage() {
     var r;
     if (!this._displayLoadingMessage)
       return;
-    const e = this.createMessageElements("", v.AI_ROLE), { outerContainer: t, bubbleElement: i } = e;
+    const e = this.createMessageElements("", x.AI_ROLE), { outerContainer: t, bubbleElement: i } = e;
     i.classList.add("loading-message-text");
     const n = document.createElement("div");
-    n.classList.add("dots-flashing"), i.appendChild(n), this.applyCustomStyles(e, v.AI_ROLE, !1, (r = this.messageStyles) == null ? void 0 : r.loading), Qi.set(i, this.messageStyles), this.elementRef.appendChild(t), Y.scrollToBottom(this.elementRef);
+    n.classList.add("dots-flashing"), i.appendChild(n), this.applyCustomStyles(e, x.AI_ROLE, !1, (r = this.messageStyles) == null ? void 0 : r.loading), Qi.set(i, this.messageStyles), this.elementRef.appendChild(t), Y.scrollToBottom(this.elementRef);
   }
   populateIntroPanel(e, t, i) {
     (e || t) && (this._introPanel = new Gt(e, t, i), this._introPanel._elementRef && (se.apply(this, this._introPanel._elementRef), this.elementRef.appendChild(this._introPanel._elementRef)));
@@ -6068,12 +6068,13 @@ const Wo = `<?xml version="1.0" encoding="utf-8"?>
 class ue {
   // prettier-ignore
   constructor(e, t, i, n) {
-    this._attachments = [], this._fileCountLimit = 99, this._acceptedFormat = "", t.maxNumberOfFiles && (this._fileCountLimit = t.maxNumberOfFiles), this._toggleContainerDisplay = i, this._fileAttachmentsContainerRef = n, t.acceptedFormats && (this._acceptedFormat = t.acceptedFormats), setTimeout(() => {
+    this._attachments = [], this._fileCountLimit = 99, this._acceptedFormat = "", t.maxNumberOfFiles && (this._fileCountLimit = t.maxNumberOfFiles), this._toggleContainerDisplay = i, this._fileAttachmentsContainerRef = n, this._attachmentChangeCallback = e.onAttachmentChange, t.acceptedFormats && (this._acceptedFormat = t.acceptedFormats), setTimeout(() => {
       this._validationHandler = e._validationHandler;
     });
   }
   attemptAddFile(e, t) {
-    return ue.isFileTypeValid(e, this._acceptedFormat) ? (this.addAttachmentBasedOnType(e, t, !0), !0) : !1;
+    var i;
+    return ue.isFileTypeValid(e, this._acceptedFormat) ? (this.addAttachmentBasedOnType(e, t, !0), (i = this._attachmentChangeCallback) == null || i.call(void 0, this._attachments, e), !0) : !1;
   }
   static isFileTypeValid(e, t) {
     if (t === "")
@@ -7510,7 +7511,7 @@ const yi = class I extends _t {
     await this._serviceIO.callAPI(n, this._messages), (a = this._fileAttachments) == null || a.removeAllFiles();
   }
   async addNewMessage({ text: e, files: t }) {
-    const i = { role: v.USER_ROLE };
+    const i = { role: x.USER_ROLE };
     e && (i.text = e), t && (i.files = await this._messages.addMultipleFiles(t)), this._serviceIO.sessionId && (i._sessionId = this._serviceIO.sessionId), Object.keys(i).length > 0 && this._messages.addNewMessage(i);
   }
   stopStream() {
@@ -7735,7 +7736,7 @@ const Ta = `#validate-property-key-view{height:100%;position:relative;display:fl
   Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
 */.hljs{background:#2b2b2b;color:#f8f8f2}.hljs-comment,.hljs-quote{color:#d4d0ab}.hljs-deletion,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#ffa07a}.hljs-built_in,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-type{color:#f5ab35}.hljs-attribute{color:gold}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#abe338}.hljs-section,.hljs-title{color:#00e0e0}.hljs-keyword,.hljs-selector-tag{color:#dcc6e0}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}@media screen and (-ms-high-contrast: active){.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-comment,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-quote,.hljs-string,.hljs-symbol,.hljs-type{color:highlight}.hljs-keyword,.hljs-selector-tag{font-weight:700}}#messages{overflow:auto}.outer-message-container:last-child{margin-bottom:5px}.inner-message-container{display:flex;margin-left:auto;margin-right:auto;width:calc(97.5% - 24px);max-width:100%}.message-bubble{margin-top:10px;word-wrap:break-word;width:fit-content;max-width:60%;border-radius:10px;padding:.42em .55em;height:fit-content;line-height:1.26em}.user-message-text{color:#fff;background-color:#0084ff;margin-right:0;margin-left:auto}.ai-message-text{color:#000;background-color:#e4e6eb;margin-left:0;margin-right:auto}.html-message{max-width:unset}.error-message-text{margin:14px auto 10px;background-color:#f4c0c0;color:#474747;text-align:center;max-width:95%}.loading-message-text{width:1em;padding:.6em .75em .6em 1.3em}.message-bubble>p:first-child{margin-top:0}.message-bubble>p:last-child{margin-bottom:0}pre{overflow:auto;display:block;word-break:break-all;word-wrap:break-word;border-radius:7px;background:#2b2b2b;color:#f8f8f2;margin-top:.8em;margin-bottom:.8em;padding:.6em;font-size:.9em;line-height:1.5em}.image-message{padding:0;display:flex;background-color:#ddd}.image-message>*,.image-message>*>*{width:100%;border-radius:8px;display:flex}.audio-message{width:60%;max-width:300px;height:2.2em;max-height:54px;padding:0;background-color:unset}.audio-player{width:100%;height:100%}.audio-player-safari{height:fit-content;width:40px}.audio-player-safari-left{float:left}.audio-player-safari-right{float:right}.any-file-message-bubble{padding:1px}.any-file-message-contents{display:flex}.any-file-message-icon-container{width:1.3em;min-width:1.3em;position:relative;border-radius:4px;margin-left:6px;margin-right:2px}.any-file-message-icon{background-color:#fff;border-radius:4px;position:absolute;width:1em;height:1.25em;padding:1px;margin-top:auto;margin-bottom:auto;top:0;bottom:0}.any-file-message-text{padding-top:5px;overflow-wrap:anywhere;padding-bottom:5px;padding-right:7px}.message-bubble>a{color:inherit}.left-item-position{margin-right:10px}.right-item-position{margin-left:10px}.deep-chat-web-model-button{margin-top:10px;margin-bottom:5px;margin-left:1px}.avatar{padding-top:5px;width:1.5em;height:1.5em;border-radius:1px}.avatar-container{margin-top:9px}.name{margin-top:16px;font-size:15px}#drag-and-drop{position:absolute;display:none;z-index:10;height:calc(100% - 10px);width:calc(100% - 10px);background-color:#70c6ff4d;border:5px dashed #6dafff}#file-attachment-container{position:absolute;height:3.6em;width:calc(80% - 4px);top:-2.5em;border-radius:5px;overflow:auto;text-align:left;background-color:#d7d7d73b;padding-left:4px}.file-attachment{width:2.85em;height:2.85em;display:inline-flex;margin-right:.6em;margin-bottom:.44em;margin-top:4px;position:relative;background-color:#fff;border-radius:5px}.image-attachment{width:100%;height:100%;object-fit:cover;border-radius:5px}.border-bound-attachment{width:calc(100% - 2px);height:calc(100% - 2px);border:1px solid #c3c3c3;border-radius:5px;overflow:hidden}.border-bound-attachment-safari{width:calc(100% - 1px);height:calc(100% - 1px)}.audio-attachment-icon-container{cursor:pointer}.audio-attachment-icon-container:hover{background-color:#f8f8f8}.attachment-icon{left:0;right:0;bottom:0;top:2px;margin:auto;position:absolute;width:25px;-webkit-user-select:none;user-select:none}.not-removable-attachment-icon{top:0;right:0;bottom:0;left:0}.play-icon{filter:brightness(0) saturate(100%) invert(17%) sepia(0%) saturate(1392%) hue-rotate(67deg) brightness(98%) contrast(97%)}.stop-icon{filter:brightness(0) saturate(100%) invert(29%) sepia(90%) saturate(1228%) hue-rotate(198deg) brightness(93%) contrast(98%)}.audio-placeholder-text-3-digits{padding-left:.26rem}.audio-placeholder-text-4-digits{padding-left:.1rem}.any-file-attachment{padding:2px 0}.file-attachment-text-container{position:absolute;width:inherit;display:flex;align-items:center;height:100%;top:-1px}.audio-placeholder-text-3-digits-container{padding-top:1px;cursor:default}.any-file-attachment-text{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;padding-left:.13em;margin-left:auto;margin-right:auto}.remove-file-attachment-button{height:1.25em;width:1.25em;border:1px solid #cfcfcf;border-radius:25px;background-color:#fff;top:-4px;right:-5px;position:absolute;display:flex;justify-content:center;cursor:pointer;-webkit-user-select:none;user-select:none}.remove-file-attachment-button:hover{background-color:#e4e4e4}.remove-file-attachment-button:active{background-color:#d7d7d7}.x-icon{color:#4e4e4e;top:-.075em;position:relative;font-size:1.05em}.modal{display:none;flex-direction:column;align-items:center;justify-content:center;position:absolute;width:80%;max-width:420px;max-height:80%;margin:auto;top:0;right:0;bottom:0;left:0;z-index:2}.modal-content{border-top:1px solid rgb(217,217,217);border-left:1px solid rgb(217,217,217);border-right:1px solid rgb(217,217,217);border-top-left-radius:inherit;border-top-right-radius:inherit;background-color:#fff;overflow-y:auto;height:fit-content;max-height:calc(100% - 3.3em);width:100%}.modal-content>p{margin-left:1em;margin-right:1em}.modal-content>ul{margin-right:1em}.modal-button-panel{height:3.3em;border:1px solid;border-color:rgb(223,223,223) rgb(217,217,217) rgb(217,217,217);border-bottom-left-radius:inherit;border-bottom-right-radius:inherit;background-color:#fff;text-align:center;justify-content:center;display:flex;width:100%}.modal-button{min-width:2.5em;text-align:center;color:#fff;border-radius:5px;padding:.4em .4em .3em;height:1.25em;background-color:#3279b2;top:0;bottom:0;cursor:pointer;-webkit-user-select:none;user-select:none;margin:auto .31em}.modal-button:hover{background-color:#276da7}.modal-button:active{background-color:#1b5687}.modal-svg-button{padding:0 0 2px;width:2em;height:1.8em}.modal-svg-button-icon{width:100%;height:100%;filter:brightness(0) saturate(100%) invert(100%) sepia(15%) saturate(4%) hue-rotate(346deg) brightness(101%) contrast(102%)}#modal-background-panel{position:absolute;width:100%;height:100%;background-color:#00000042;z-index:1;display:none}.show-modal-background{animation:fadeInBackground .3s ease-in-out}@keyframes fadeInBackground{0%{opacity:0}to{opacity:1}}.show-modal{animation:fadeInModal .3s ease-in-out}@keyframes fadeInModal{0%{opacity:0;scale:.95}to{opacity:1;scale:1}}.hide-modal-background{animation:fadeOutBackground .2s ease-in-out}@keyframes fadeOutBackground{0%{opacity:1}to{opacity:0}}.hide-modal{animation:fadeOutModal .2s ease-in-out}@keyframes fadeOutModal{0%{opacity:1;scale:1}to{opacity:0;scale:.95}}.modal-camera-content{overflow:hidden;text-align:center;border:unset;height:100%;background-color:#2a2a2a;display:flex;justify-content:center}.camera-modal-canvas{max-width:100%;max-height:100%;margin-top:auto;margin-bottom:auto}.modal-svg-submit-button{background-color:green}.modal-svg-submit-button:hover{background-color:#007500}.modal-svg-submit-button:active{background-color:#006500}.modal-svg-submit-disabled{pointer-events:none;background-color:#747474}.modal-svg-close-button{height:1.56em;padding-top:.37em;padding-bottom:0;background-color:#c13e3e}.modal-svg-close-button:hover{background-color:#b43434}.modal-svg-close-button:active{background-color:#972929}.modal-svg-close-icon{width:80%;height:80%}.modal-svg-camera-button{height:1.6em;padding-top:.38em;padding-bottom:0}.modal-svg-camera-icon{height:76%}.modal-svg-refresh-icon{height:105%}.modal-svg-refresh-button{height:1.66em;padding-top:.11em;padding-bottom:.21em}.input-button-container{position:relative;z-index:1}.inside-right{position:absolute;right:calc(10% + .35em);bottom:.85em}.inside-left{position:absolute;left:calc(10% + .35em);bottom:.85em}.outside-left{position:absolute;right:calc(11px - .55em);bottom:.88em}.outside-right{position:absolute;left:calc(11px - .55em);bottom:.88em}#upload-images-icon{position:absolute;pointer-events:none;width:1.45em;height:1.45em;left:.11em;bottom:.08em;filter:brightness(0) saturate(100%) invert(43%) sepia(0%) saturate(740%) hue-rotate(77deg) brightness(99%) contrast(92%)}#upload-gifs-icon{position:absolute;pointer-events:none;width:1.5em;height:1.48em;left:.07em;bottom:.08em;filter:brightness(0) saturate(100%) invert(49%) sepia(0%) saturate(2586%) hue-rotate(12deg) brightness(93%) contrast(90%)}#upload-audio-icon{position:absolute;pointer-events:none;width:1.21em;height:1.21em;left:.17em;bottom:.2em;filter:brightness(0) saturate(100%) invert(15%) sepia(0%) saturate(337%) hue-rotate(125deg) brightness(91%) contrast(94%);transform:scaleX(.95)}#camera-icon{position:absolute;pointer-events:none;width:1.21em;height:1.21em;left:.23em;bottom:.2em;filter:brightness(0) saturate(100%) invert(52%) sepia(0%) saturate(161%) hue-rotate(164deg) brightness(91%) contrast(92%);transform:scaleX(.95)}#upload-mixed-files-icon{position:absolute;pointer-events:none;width:1.21em;height:1.21em;left:.25em;bottom:.2em;filter:brightness(0) saturate(100%) invert(53%) sepia(0%) saturate(36%) hue-rotate(74deg) brightness(98%) contrast(93%);transform:scaleX(.95)}#interim-text{color:gray}#microphone-button{padding-top:.5px}.outer-button-container>#microphone-button{padding-bottom:1px}#microphone-icon{position:absolute;pointer-events:none;width:1.21em;height:1.21em;left:.25em;bottom:.25em}.default-microphone-icon{filter:brightness(0) saturate(100%) invert(32%) sepia(0%) saturate(924%) hue-rotate(46deg) brightness(95%) contrast(99%)}.active-microphone-icon{filter:brightness(0) saturate(100%) invert(10%) sepia(97%) saturate(7495%) hue-rotate(0deg) brightness(101%) contrast(107%);border-radius:10px}.command-microphone-icon{filter:brightness(0) saturate(100%) invert(42%) sepia(96%) saturate(1067%) hue-rotate(77deg) brightness(99%) contrast(102%)}.unsupported-microphone{display:none}#submit-icon{height:100%;filter:brightness(0) saturate(100%) invert(32%) sepia(0%) saturate(924%) hue-rotate(46deg) brightness(95%) contrast(99%);width:1.21em}#stop-icon{background-color:#acacac;position:absolute;width:.95em;height:.95em;left:.35em;bottom:.35em;border-radius:2px}.submit-button-enlarged{scale:1.1;margin-right:.3em;margin-left:.3em}.dots-jumping{position:relative;left:calc(-9990px + .275em);width:.22em;height:.22em;border-radius:5px;background-color:#848484;color:#848484;box-shadow:9990px 0 #848484,calc(9990px + .44em) 0 0 0 #848484,calc(9990px + .8em) 0 0 0 #848484;animation:dots-jumping 1.5s infinite linear;bottom:-.7em}@keyframes dots-jumping{0%{box-shadow:9990px 0 #848484,calc(9990px + .44em) 0 0 0 #848484,calc(9990px + .8em) 0 0 0 #848484}16.667%{box-shadow:9990px -6px #848484,calc(9990px + .44em) 0 0 0 #848484,calc(9990px + .8em) 0 0 0 #848484}33.333%{box-shadow:9990px 0 #848484,calc(9990px + .44em) 0 0 0 #848484,calc(9990px + .8em) 0 0 0 #848484}50%{box-shadow:9990px 0 #848484,calc(9990px + .44em) -6px 0 0 #848484,calc(9990px + .8em) 0 0 0 #848484}66.667%{box-shadow:9990px 0 #848484,calc(9990px + .44em) 0 0 0 #848484,calc(9990px + .8em) 0 0 0 #848484}83.333%{box-shadow:9990px 0 #848484,calc(9990px + .44em) 0 0 0 #848484,calc(9990px + .8em) -6px 0 0 #848484}to{box-shadow:9990px 0 #848484,calc(9990px + .44em) 0 0 0 #848484,calc(9990px + .8em) 0 0 0 #848484}}.dots-flashing{position:relative;width:.45em;height:.45em;border-radius:5px;background-color:var(--message-dots-color);color:var(--message-dots-color);animation:dots-flashing 1s infinite linear alternate;animation-delay:.5s}.dots-flashing:before,.dots-flashing:after{content:"";display:inline-block;position:absolute;top:0}.dots-flashing:before{left:-.7em;width:.45em;height:.45em;border-radius:5px;background-color:var(--message-dots-color);color:var(--message-dots-color);animation:dots-flashing 1s infinite alternate;animation-delay:0s}.dots-flashing:after{left:.7em;width:.45em;height:.45em;border-radius:5px;background-color:var(--message-dots-color);color:var(--message-dots-color);animation:dots-flashing 1s infinite alternate;animation-delay:1s}@keyframes dots-flashing{0%{background-color:var(--message-dots-color)}50%,to{background-color:var(--message-dots-color-fade)}}.input-button{border-radius:4px;cursor:pointer;margin-bottom:.2em;-webkit-user-select:none;user-select:none}.input-button-svg{width:1.65em;height:1.65em}.input-button:hover{background-color:#9c9c9c2e}.input-button:active{background-color:#9c9c9c5e}.loading-button{cursor:auto}.loading-button:hover{background-color:unset}.text-button{filter:unset!important;display:flex;justify-content:center;align-items:center;margin-left:4px;margin-right:4px;height:1.6em}#text-input-container{background-color:#fff;width:80%;display:flex;border:1px solid #0000001a;border-radius:5px;margin-top:.8em;margin-bottom:.8em;box-shadow:#959da533 0 1px 12px;overflow-y:auto;max-height:200px;position:relative}.text-input-container-left-adjustment{margin-left:1.5em}.text-input-container-right-adjustment{margin-right:1.5em}.text-input-container-left-small-adjustment{margin-left:1.1em}.text-input-container-left-small-adjustment>.outside-left{right:calc(14px - .55em)}.text-input-container-right-small-adjustment{margin-right:1.1em}.text-input-container-right-small-adjustment>.outside-right{left:calc(14px - .55em)}#text-input{text-align:left;outline:none;word-wrap:break-word;line-break:auto}.text-input-styling{padding:.4em .5em;overflow:overlay;width:100%}.text-input-inner-left-adjustment{padding-left:2.2em}.text-input-inner-right-adjustment{padding-right:2em}.text-input-disabled{pointer-events:none;-webkit-user-select:none;user-select:none}.text-input-placeholder{color:gray}.outside-right>#dropup-menu,.inside-right>#dropup-menu{right:0}#dropup-icon{position:absolute;pointer-events:none;width:1.16em;height:1.2em;left:.265em;bottom:.43em;filter:brightness(0) saturate(100%) invert(54%) sepia(0%) saturate(724%) hue-rotate(6deg) brightness(92%) contrast(90%)}#dropup-menu{background-color:#fff;position:absolute;transform:translateY(-100%);border-radius:5px;z-index:1;top:-.49em;box-shadow:#0003 -1px 2px 10px,#0000001a 0 2px 4px;cursor:pointer;-webkit-user-select:none;user-select:none}.dropup-menu-item{height:1.4em;padding:.28em .84em .28em .35em;display:flex;position:relative}.dropup-menu-item:first-child{padding-top:.49em;border-top-left-radius:inherit;border-top-right-radius:inherit}.dropup-menu-item:last-child{padding-bottom:.45em;border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.dropup-menu-item-icon{width:1.39em;position:relative;margin-right:.56em}.dropup-menu-item-icon>svg{bottom:0!important;top:0!important;margin-bottom:auto;margin-top:auto}.dropup-menu-item-text{margin-top:.08em;width:max-content}#input{width:100%;display:inline-flex;text-align:center;margin-left:auto;margin-right:auto;margin-top:auto;position:relative;justify-content:center}#chat-view{height:100%;display:grid;grid-template-columns:100%}::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background-color:#d0d0d0;border-radius:5px}::-webkit-scrollbar-track{background-color:#f2f2f2}:host{all:initial;display:table-cell}#container{height:inherit;width:inherit;overflow:hidden}
 `;
-var Ca = Object.defineProperty, Aa = Object.getOwnPropertyDescriptor, x = (s, e, t, i) => {
+var Ca = Object.defineProperty, Aa = Object.getOwnPropertyDescriptor, y = (s, e, t, i) => {
   for (var n = i > 1 ? void 0 : i ? Aa(e, t) : e, r = s.length - 1, o; r >= 0; r--)
     (o = s[r]) && (n = (i ? o(e, t, n) : o(n)) || n);
   return i && n && Ca(e, t, n), n;
@@ -7762,122 +7763,125 @@ class b extends mo {
     this._activeService ?? (this._activeService = zo.create(this)), this._activeService && (this.auxiliaryStyle && !this._auxiliaryStyleApplied && (Ei.apply(this.auxiliaryStyle, this.shadowRoot), this._auxiliaryStyleApplied = !0), Ei.applyDefaultStyleToComponent(this.style, this.chatStyle), ke.checkForContainerStyles(this, this._elementRef), this._activeService.key && this._activeService.validateConfigKey ? Dt.render(this._elementRef, this.changeToChatView.bind(this), this._activeService) : !(this._activeService instanceof q) || this._activeService.key ? (this._childElement ?? (this._childElement = this.children[0]), nn.render(this, this._elementRef, this._activeService, this._childElement)) : this._activeService instanceof q && P.render(this._elementRef, this.changeToChatView.bind(this), this._activeService), this._hasBeenRendered = !0, jt.onRender(this));
   }
 }
-x([
-  y("object")
+y([
+  v("function")
+], b.prototype, "onAttachmentChange", 2);
+y([
+  v("object")
 ], b.prototype, "directConnection", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "request", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "webModel", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "stream", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "requestBodyLimits", 2);
-x([
-  y("function")
+y([
+  v("function")
 ], b.prototype, "requestInterceptor", 2);
-x([
-  y("function")
+y([
+  v("function")
 ], b.prototype, "responseInterceptor", 2);
-x([
-  y("function")
+y([
+  v("function")
 ], b.prototype, "validateInput", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "chatStyle", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "attachmentContainerStyle", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "dropupStyles", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "inputAreaStyle", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "textInput", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "submitButtonStyles", 2);
-x([
-  y("string")
+y([
+  v("string")
 ], b.prototype, "auxiliaryStyle", 2);
-x([
-  y("array")
+y([
+  v("array")
 ], b.prototype, "initialMessages", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "introMessage", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "avatars", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "names", 2);
-x([
-  y("boolean")
+y([
+  v("boolean")
 ], b.prototype, "displayLoadingBubble", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "errorMessages", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "messageStyles", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "textToSpeech", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "speechToText", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "images", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "gifs", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "camera", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "audio", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "microphone", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "mixedFiles", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "dragAndDrop", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "introPanelStyle", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "htmlClassUtilities", 2);
-x([
-  y("function")
+y([
+  v("function")
 ], b.prototype, "onNewMessage", 2);
-x([
-  y("function")
+y([
+  v("function")
 ], b.prototype, "onClearMessages", 2);
-x([
-  y("function")
+y([
+  v("function")
 ], b.prototype, "onComponentRender", 2);
-x([
-  y("function")
+y([
+  v("function")
 ], b.prototype, "onError", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "demo", 2);
-x([
-  y("object")
+y([
+  v("object")
 ], b.prototype, "_insertKeyViewStyles", 2);
 customElements.define("deep-chat", b);
 export {

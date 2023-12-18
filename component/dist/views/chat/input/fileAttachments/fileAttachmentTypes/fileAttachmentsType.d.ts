@@ -13,6 +13,7 @@ export declare class FileAttachmentsType {
     private readonly _toggleContainerDisplay;
     private readonly _fileAttachmentsContainerRef;
     private readonly _acceptedFormat;
+    private _attachmentChangeCallback?;
     private _validationHandler?;
     constructor(deepChat: DeepChat, fileAttachments: FileAttachments, toggleContainer: (display: boolean) => void, container: HTMLElement);
     attemptAddFile(file: File, fileReaderResult: string): boolean;

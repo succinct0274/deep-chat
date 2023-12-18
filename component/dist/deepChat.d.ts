@@ -22,7 +22,9 @@ import { Avatars } from './types/avatars';
 import { Stream } from './types/stream';
 import { Names } from './types/names';
 import { Demo } from './types/demo';
+import { AttachmentObject } from './views/chat/input/fileAttachments/fileAttachmentTypes/fileAttachmentsType';
 export declare class DeepChat extends InternalHTML {
+    onAttachmentChange?: (attachemnts: AttachmentObject[], newFile: File) => void;
     directConnection?: DirectConnection;
     request?: Request;
     webModel?: WebModel;
